@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
+    'todolist',
     'rest_framework',
     'django_filters'
 ]
@@ -133,7 +135,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #config for user auth model
-"""
+
 AUTH_USER_MODEL = 'accounts.User'
-LOGIN_REDIRECT_URL = ''
-"""
+# LOGIN_REDIRECT_URL = ''
+
