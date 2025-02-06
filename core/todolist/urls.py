@@ -1,4 +1,4 @@
-from django.urls import path 
+from django.urls import path , include
 from .views import *
 app_name = 'todolist'
 urlpatterns = [
@@ -8,4 +8,5 @@ urlpatterns = [
     path('<int:pk>/complete/',TaskCompleteView.as_view(),name='taskcomplete'),
     path('<int:pk>/reset/',TaskResetView.as_view(),name='taskreset'),
     path('<int:pk>/edit/',TaskEditView.as_view(),name='taskedit'),
+    path('api/',include('todolist.api.v1.urls'))
 ]
