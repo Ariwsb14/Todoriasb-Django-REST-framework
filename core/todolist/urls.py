@@ -8,5 +8,5 @@ urlpatterns = [
     path('<int:pk>/complete/',TaskCompleteView.as_view(),name='taskcomplete'),
     path('<int:pk>/reset/',TaskResetView.as_view(),name='taskreset'),
     path('<int:pk>/edit/',TaskEditView.as_view(),name='taskedit'),
-    path('api/',include('todolist.api.v1.urls'))
+    path('api/v1/',include('todolist.api.v1.urls'))
 ]

@@ -4,6 +4,6 @@ from rest_framework.routers import DefaultRouter
 
 app_name = 'api-v1'
 
-urlpatterns =[
-    
-]
+router = DefaultRouter()
+router.register('task',views.TasktModelsViewSet,basename='tasks')
+urlpatterns = router.urls
