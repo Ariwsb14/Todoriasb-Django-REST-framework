@@ -21,6 +21,6 @@ urlpatterns = [
     path('profile/', views.ProfileAPIView.as_view(),name='profile'),
     #user activation
     path('activation/confirm/<str:token>' ,views.ActivationEmailAPIView.as_view(), name='email-activation'),
-    path('test-email', views.TestEmailSend.as_view(),name='test'),
+    #path('test-email', views.TestEmailSend.as_view(),name='test'),
     path('activation/resend/',views.ActivationResendAPIView.as_view(),name='activation-resend')
 ]

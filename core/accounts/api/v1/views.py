@@ -54,6 +54,9 @@ class CustomObtainAuthToken(ObtainAuthToken):
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
         token, created = Token.objects.get_or_create(user=user)
+        print("User:", user)
+        print("Token:", token)
+        print("Created:", created)
 
         return Response(
             {
@@ -106,15 +109,15 @@ class ProfileAPIView(generics.RetrieveUpdateAPIView):
         obj = get_object_or_404(query_set,user=self.request.user)
         return obj
 
-class TestEmailSend(generics.GenericAPIView):
+# class TestEmailSend(generics.GenericAPIView):
     
-    def get(self,request,*args,**kwargs):
-        self.email = 'Ariasb1385@gmail.com'
-        user = get_object_or_404(User,email=self.email)
-        token = self.get_tokens_for_user(user)
-        email_obj = EmailMessage('email/hello.tpl', {'token':token}, 'admin@admin.com', to=[self.email])
-        EmailThread(email_obj).start()
-        return Response('email sent')
+#     def get(self,request,*args,**kwargs):
+#         self.email = 'Ariasb1385@gmail.com'
+#         user = get_object_or_404(User,email=self.email)
+#         token = self.get_tokens_for_user(user)
+#         email_obj = EmailMessage('email/hello.tpl', {'token':token}, 'admin@admin.com', to=[self.email])
+#         EmailThread(email_obj).start()
+#         return Response('email sent')
     
     def get_tokens_for_user(self,user):
         refresh = RefreshToken.for_user(user)
