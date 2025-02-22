@@ -67,5 +67,5 @@ class LogoutView(View):
     def get(self, request): 
         logout(request)      
         message = ''
-        return render(request, self.template_name, context={ 'message': message})
+        return redirect(reverse('accounts:login'))
    

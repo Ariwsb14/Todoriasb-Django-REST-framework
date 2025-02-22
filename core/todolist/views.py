@@ -27,6 +27,7 @@ class TaskCreateView(LoginRequiredMixin,CreateView):
     success_url = '/'
     def form_valid(self, form):
         form.instance.user = Profile.objects.get(user__id =self.request.user.id)
+        
         return super().form_valid(form)
 
 #delete a task
