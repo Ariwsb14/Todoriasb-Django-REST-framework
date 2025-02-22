@@ -1,10 +1,10 @@
 from django.shortcuts import render
-
+from django.urls import reverse
 # Create your views here.
-from django.shortcuts import render , redirect
+from django.shortcuts import render , redirect 
 from .models import User , UserManager
 from django.views.generic import View
-from django.contrib.auth import authenticate, login 
+from django.contrib.auth import authenticate, login , logout
 
 # Create your views here.
 
@@ -61,4 +61,11 @@ class LoginPageView(View):
             print(password)
         message = 'Login failed!'
         return render(request, self.template_name, context={ 'message': message})
-    
+
+class LogoutView(View):
+    template_name = 'accounts/login.html'
+    def get(self, request): 
+        logout(request)      
+        message = ''
+        return render(request, self.template_name, context={ 'message': message})
+   
